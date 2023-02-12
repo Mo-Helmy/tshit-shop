@@ -32,32 +32,51 @@ const ShopPageNum = ({ products, pageCount, productCount }) => {
 export default ShopPageNum;
 
 export const getStaticPaths = async () => {
-  const response = await fetch(`${apiUrl}/api/products?page=1`);
-  const data = await response.json();
+  try {
+    const response = await fetch(`${apiUrl}/api/products?page=1`);
+    const data = await response.json();
 
-  let pathArr = [];
-  for (let i = 0; i < data.pageCount; i++) {
-    pathArr.push({ params: { page: String(i + 1) } });
+    let pathArr = [];
+    for (let i = 0; i < data.pageCount; i++) {
+      pathArr.push({ params: { page: String(i + 1) } });
+    }
+
+    console.log('🚀 ~ file: [page].js:18 ~ getStaticPaths ~ pathArr', pathArr);
+    return {
+      paths: pathArr,
+      fallback: 'blocking',
+    };
+  } catch (error) {
+    console.log('🚀 ~ file: [page].js:50 ~ getStaticPaths ~ error', error);
+    return {
+      paths: [{ param: { page: 1 } }],
+      fallback: 'blocking',
+    };
   }
-
-  console.log('🚀 ~ file: [page].js:18 ~ getStaticPaths ~ pathArr', pathArr);
-  return {
-    paths: pathArr,
-    fallback: 'blocking',
-  };
 };
 
 export const getStaticProps = async ({ params }) => {
-  const response = await fetch(
-    `${apiUrl}/api/products?page=${params.page || '1'}`
-  );
-  const data = await response.json();
+  try {
+    const response = await fetch(
+      `${apiUrl}/api/products?page=${params.page || '1'}`
+    );
+    const data = await response.json();
 
-  return {
-    props: {
-      products: data.products,
-      pageCount: data.pageCount,
-      productCount: data.productCount,
-    },
-  };
+    return {
+      props: {
+        products: data.products,
+        pageCount: data.pageCount,
+        productCount: data.productCount,
+      },
+    };
+  } catch (error) {
+    console.log('🚀 ~ file: [page].js:73 ~ getStaticProps ~ error', error);
+    return {
+      props: {
+        products: [],
+        pageCount: [],
+        productCount: 0,
+      },
+    };
+  }
 };
