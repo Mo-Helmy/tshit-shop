@@ -38,9 +38,9 @@ export async function getStaticPaths() {
     };
   } catch (error) {
     console.log('🚀 ~ file: [productId].js:23 ~ getStaticPaths ~ error', error);
-    throw new error(error);
+    // throw new error(error);
     return {
-      paths: [{ params: { productId: '' } }],
+      paths: [{ params: { productId: 'dd' } }],
       fallback: 'blocking',
     };
   }
