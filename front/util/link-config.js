@@ -11,7 +11,7 @@ if (environment === 'development') {
   apiUrl = 'http://localhost:4000';
   clientUrl = 'http://localhost:3000';
 } else {
-  apiUrl = 'http://localhost:4000';
+  apiUrl = 'http://godzilla.us-east-1.elasticbeanstalk.com/';
   clientUrl = 'http://localhost:3000';
 }
 
