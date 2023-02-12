@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "frontendStart": "cd godzilla&& npm run dev",
+    "backendStart": "cd godzilla-backend&& npm start",
+    "start": "npm run backendStart&& npm run frontendStart"
+  }
+}
