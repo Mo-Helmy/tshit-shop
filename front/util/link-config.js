@@ -12,7 +12,8 @@ if (environment === 'development') {
   clientUrl = 'http://localhost:3000';
 } else {
   apiUrl = 'http://godzilla.us-east-1.elasticbeanstalk.com/';
-  clientUrl = 'https://tshit-shop-a5vur5cfb-mo-helmy.vercel.app';
+  clientUrl = 'https://tshit-shop-djzi279ir-mo-helmy.vercel.app';
+  // clientUrl = 'https://tshit-shop-a5vur5cfb-mo-helmy.vercel.app';
 }
 
 export { apiUrl, clientUrl };
