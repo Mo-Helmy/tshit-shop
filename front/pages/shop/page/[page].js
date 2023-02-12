@@ -49,7 +49,7 @@ export const getStaticPaths = async () => {
   } catch (error) {
     console.log('🚀 ~ file: [page].js:50 ~ getStaticPaths ~ error', error);
     return {
-      paths: [{ param: { page: '1' } }],
+      paths: [{ params: { page: '1' } }],
       fallback: 'blocking',
     };
   }
