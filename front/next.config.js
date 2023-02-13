@@ -42,10 +42,16 @@ const nextConfig = (phase) => {
           port: '4000',
           pathname: '/api/**',
         },
+        {
+          protocol: 'http',
+          hostname: 'godzilla.us-east-1.elasticbeanstalk.com',
+          port: '8080',
+          pathname: '/api/**',
+        },
       ],
     },
     env: {
-      API_URL: 'http://localhost:4000',
+      API_URL: 'http://godzilla.us-east-1.elasticbeanstalk.com/',
       CLIENT_URL: 'https://tshit-shop.vercel.app/',
       MONGODB_URL:
         'mongodb+srv://mohelmy:xJka4LH9GuEoF3xW@cluster0.s13ivsk.mongodb.net/godzilla2?retryWrites=true&w=majority',
