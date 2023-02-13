@@ -24,12 +24,12 @@ export const getServerSideProps = async ({ req, res, query }) => {
       };
 
     return {
-      props: { session },
+      props: {},
     };
   } catch (error) {
     console.log('🚀 ~ file: login.js:30 ~ getServerSideProps ~ error', error);
     return {
-      props: { session },
+      props: {},
     };
   }
 };
