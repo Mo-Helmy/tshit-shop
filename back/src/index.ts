@@ -5,7 +5,7 @@ import cors from 'cors';
 import path from 'path';
 
 const app = express();
-const port = 8080;
+const port = 4000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
