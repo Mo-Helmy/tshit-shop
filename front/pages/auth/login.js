@@ -12,19 +12,26 @@ const AuthPage = () => {
 };
 
 export const getServerSideProps = async ({ req, res, query }) => {
-  const session = await getServerSession(req, res, authOptions);
+  try {
+    const session = await getServerSession(req, res, authOptions);
 
-  if (session)
+    if (session)
+      return {
+        redirect: {
+          destination: '/',
+          permenant: false,
+        },
+      };
+
     return {
-      redirect: {
-        destination: '/',
-        permenant: false,
-      },
+      props: { session },
     };
-
-  return {
-    props: { session },
-  };
+  } catch (error) {
+    console.log('🚀 ~ file: login.js:30 ~ getServerSideProps ~ error', error);
+    return {
+      props: { session },
+    };
+  }
 };
 
 export default AuthPage;
